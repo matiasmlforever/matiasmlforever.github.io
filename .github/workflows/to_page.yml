@@ -16,10 +16,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build the app
-      run: npm run build
+    - name: Build the app (predeploy)
+      run: npm run predeploy
 
     - name: Deploy to GitHub Pages
+      run: npm run deploy
       uses: JamesIves/github-pages-deploy-action@4.1.1
       with:
         branch: main
