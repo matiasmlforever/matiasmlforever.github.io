@@ -1,0 +1,26 @@
+{
+  "name": "matiasmlforever-devcontainer",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "ms-vscode.vscode-typescript-next"
+  ],
+  "forwardPorts": [3000],
+  "postCreateCommand": "",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "mounts": [
+    "source=/d/DEV/matiasmlforever.github.io,target=/app,type=bind,consistency=cached"
+  ]
+}
