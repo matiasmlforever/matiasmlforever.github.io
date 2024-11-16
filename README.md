@@ -1,4 +1,5 @@
 # React JS Resume Website Template
+https://github.com/tbakerx/react-resume-template
 
 ![ReactJS Resume Website Template](resume-screenshot.jpg?raw=true 'ReactJS Resume Website Template')
 
