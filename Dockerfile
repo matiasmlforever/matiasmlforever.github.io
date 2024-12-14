@@ -10,10 +10,10 @@ WORKDIR /app
 RUN apk add --no-cache libc6-compat
 
 # Copiar los archivos necesarios
-COPY package.json yarn.lock ./
+COPY package.json ./
 
 # Instalar dependencias del proyecto
-RUN rm -rf node_modules && yarn install --frozen-lockfile
+RUN rm -rf node_modules && yarn install --network-concurrency 4 --verbose --frozen-lockfile
 
 # Copiar todo el código fuente
 COPY . .

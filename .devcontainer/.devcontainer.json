@@ -15,12 +15,21 @@
     "ms-vscode.vscode-typescript-next"
   ],
   "forwardPorts": [3000],
-  "postCreateCommand": "",
+  "postCreateCommand": "./start-devcontainer.sh",
   "remoteUser": "node",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:1": {}
   },
   "mounts": [
     "source=/d/DEV/matiasmlforever.github.io,target=/app,type=bind,consistency=cached"
-  ]
-}
+  ],
+  "customizations": {
+    "jetbrains": {
+      "settings": {
+        "Docker:app:DockerSettings.dockerComposePath": "C:\\Users\\Matias Lecaros\\AppData\\Local\\Programs\\Rancher Desktop\\resources\\resources\\win32\\bin\\docker.exe",
+        "Docker:app:DockerSettings.dockerPath": "C:\\Users\\Matias Lecaros\\AppData\\Local\\Programs\\Rancher Desktop\\resources\\resources\\win32\\bin\\docker.exe",
+        "com.intellij:app:HttpConfigurable.use_proxy_pac": true,
+        "org.jetbrains.plugins.terminal:app:TerminalOptionsProvider.myShellPath": "sh"
+      }
+    }
+  },}

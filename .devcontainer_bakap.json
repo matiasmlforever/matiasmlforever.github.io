@@ -1,0 +1,43 @@
+{
+  "name": "matiasmlforever-devcontainer",
+  "build": {
+    "dockerFile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "NODE_ENV": "development"
+    }
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
+  },
+  "mounts": [
+    "source=.,target=/app,type=bind,consistency=cached"
+  ],
+  "onCreateCommand": {
+    "update": "apk update",
+    "installDependencies": "apk add unzip curl libxext libxrender libxtst libxi freetype procps gcompat"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    },
+    "jetbrains": {
+      "settings": {
+        "com.intellij:app:HttpConfigurable.use_proxy_pac": true,
+        "org.jetbrains.plugins.terminal:app:TerminalOptionsProvider.myShellPath": "sh",
+        "Docker:app:DockerSettings.dockerComposePath": "C:\\Users\\Matias Lecaros\\AppData\\Local\\Programs\\Rancher Desktop\\resources\\resources\\linux\\bin\\docker.exe",
+        "Docker:app:DockerSettings.dockerPath": "C:\\Users\\Matias Lecaros\\AppData\\Local\\Programs\\Rancher Desktop\\resources\\resources\\linux\\bin\\docker.exe"
+      }
+    }
+  },
+}

@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "install": "yarn install --production --frozen-lockfile",
+    "install": "yarn install --frozen-lockfile --production=true --silent",
     "build": "yarn compile && yarn next build",
     "clean": "rm -rf build-tsc .next",
     "compile": "yarn run -T tsc --build --verbose",
