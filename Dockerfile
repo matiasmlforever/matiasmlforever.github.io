@@ -7,22 +7,23 @@ LABEL authors="Matias Lecaros+"
 WORKDIR /app
 
 # Instalar dependencias necesarias para construir la app
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat python3 make g++
 
 # Copiar los archivos necesarios
 COPY package.json ./
 
 # Instalar dependencias del proyecto
-RUN rm -rf node_modules && yarn install --network-concurrency 4 --verbose --frozen-lockfile
+RUN rm -rf node_modules
+RUN yarn install
 
 # Copiar todo el código fuente
 COPY . .
 
 # Compilar el proyecto Next.js para producción
-RUN npm run build
+RUN yarn build-dev
 
 # Eliminar dependencias de desarrollo para reducir tamaño
-RUN npm run install
+RUN npm run clean
 
 # Etapa 2: Contenedor de producción
 FROM node:18-alpine

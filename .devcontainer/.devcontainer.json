@@ -1,7 +1,7 @@
 {
   "name": "matiasmlforever-devcontainer",
   "dockerComposeFile": [
-    "./docker-compose.yml"
+    "../docker-compose.yml"
   ],
   "service": "app",
   "workspaceFolder": "/app",
@@ -15,7 +15,6 @@
     "ms-vscode.vscode-typescript-next"
   ],
   "forwardPorts": [3000],
-  "postCreateCommand": "./start-devcontainer.sh",
   "remoteUser": "node",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:1": {}
