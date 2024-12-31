@@ -1,0 +1,28 @@
+# Ignore node_modules, since we install them inside the Docker image
+node_modules/
+
+# Ignore yarn.lock if you're not using it inside the container (optional)
+#yarn.lock
+
+# Ignore build directories
+.next/
+out/
+
+# Ignore logs
+*.log
+
+# Ignore the IDE/editor settings
+.idea/
+.vscode/
+
+# Ignore system files (macOS, Windows, etc.)
+.DS_Store
+Thumbs.db
+
+# Ignore test directories or files
+test/
+tests/
+
+# Ignore Docker-related files
+Dockerfile
+.dockerignore

@@ -1,0 +1,27 @@
+{
+  "name": "React Resume Template Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.next": true,
+      "**/node_modules": true
+    }
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint", // For linting
+    "esbenp.prettier-vscode", // For formatting
+    "dsznajder.es7-react-js-snippets", // React snippets
+    "eamodio.gitlens" // Git enhancements
+  ],
+  "postCreateCommand": "yarn install",
+  "forwardPorts": [3000],
+  "remoteUser": "node",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ]
+}
