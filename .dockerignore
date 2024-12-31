@@ -2,7 +2,7 @@
 node_modules/
 
 # Ignore yarn.lock if you're not using it inside the container (optional)
-yarn.lock
+#yarn.lock
 
 # Ignore build directories
 .next/

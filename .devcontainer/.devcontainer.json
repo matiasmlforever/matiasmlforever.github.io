@@ -1,34 +1,27 @@
 {
-  "name": "matiasmlforever-devcontainer",
-  "dockerComposeFile": [
-    "../docker-compose.yml"
-  ],
-  "service": "app",
-  "workspaceFolder": "/app",
+  "name": "React Resume Template Devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.next": true,
+      "**/node_modules": true
+    }
   },
   "extensions": [
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "eamodio.gitlens",
-    "ms-vscode.vscode-typescript-next"
+    "dbaeumer.vscode-eslint", // For linting
+    "esbenp.prettier-vscode", // For formatting
+    "dsznajder.es7-react-js-snippets", // React snippets
+    "eamodio.gitlens" // Git enhancements
   ],
+  "postCreateCommand": "yarn install",
   "forwardPorts": [3000],
   "remoteUser": "node",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {}
-  },
   "mounts": [
-    "source=/d/DEV/matiasmlforever.github.io,target=/app,type=bind,consistency=cached"
-  ],
-  "customizations": {
-    "jetbrains": {
-      "settings": {
-        "Docker:app:DockerSettings.dockerComposePath": "C:\\Users\\Matias Lecaros\\AppData\\Local\\Programs\\Rancher Desktop\\resources\\resources\\win32\\bin\\docker.exe",
-        "Docker:app:DockerSettings.dockerPath": "C:\\Users\\Matias Lecaros\\AppData\\Local\\Programs\\Rancher Desktop\\resources\\resources\\win32\\bin\\docker.exe",
-        "com.intellij:app:HttpConfigurable.use_proxy_pac": true,
-        "org.jetbrains.plugins.terminal:app:TerminalOptionsProvider.myShellPath": "sh"
-      }
-    }
-  },}
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ]
+}
