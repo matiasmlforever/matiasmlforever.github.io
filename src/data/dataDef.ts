@@ -1,4 +1,4 @@
-import {StaticImageData} from "next/legacy/image";
+import {StaticImageData} from "next/image";
 import {FC, SVGProps} from 'react';
 
 import {IconProps} from '../components/Icon/Icon';

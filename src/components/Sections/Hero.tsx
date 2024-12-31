@@ -1,6 +1,6 @@
 import {ChevronDownIcon} from '@heroicons/react/outline';
 import classNames from 'classnames';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import {FC, memo} from 'react';
 
 import {heroData, SectionId} from '../../data/data';
@@ -11,17 +11,19 @@ const Hero: FC = memo(() => {
   const {imageSrc, name, description, actions} = heroData;
 
   return (
-    <Section noPadding sectionId={SectionId.Hero}>
+    (<Section noPadding sectionId={SectionId.Hero}>
       <div className="relative flex h-screen w-screen items-center justify-center">
         <Image
           alt={`${name}-image`}
           className="absolute z-0"
-          layout="fill"
-          objectFit="cover"
           placeholder="blur"
           priority
           src={imageSrc}
-        />
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover"
+          }} />
         <div className="z-10  max-w-screen-lg px-4 lg:px-0">
           <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/40 p-6 text-center shadow-lg backdrop-blur-sm">
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-7xl">{name}</h1>
@@ -53,7 +55,7 @@ const Hero: FC = memo(() => {
           </a>
         </div>
       </div>
-    </Section>
+    </Section>)
   );
 });
 
